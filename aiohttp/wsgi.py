@@ -121,8 +121,7 @@ class WSGIServerHttpProtocol(server.ServerHttpProtocol):
         path_info = uri_parts.path
         if script_name:
             path_info = path_info.split(script_name, 1)[-1]
-
-	environ['PATH_INFO'] = unquote(path_info).encode().decode('latin-1')
+        environ['PATH_INFO'] = unquote(path_info).encode().decode('latin-1')
         environ['SCRIPT_NAME'] = script_name
 
         environ['async.reader'] = self.reader
